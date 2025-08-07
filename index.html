@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plataforma Educativa - Iniciar Sesión</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Particles.js CDN para efectos de partículas -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sección izquierda - 50% con imagen de fondo y partículas -->
+      <div
+        class="left-section"
+        style="background-image: url('./img/guarderia_01.webp')"
+      >
+        <!-- Contenedor para particles.js -->
+        <div id="particles-js" class="particles-container"></div>
+
+        <!-- Overlay morado sobre la imagen de fondo -->
+        <div class="image-overlay"></div>
+
+        <!-- Contenido opcional sobre la imagen -->
+        <div class="content-overlay">
+          <!-- Información del sistema superpuesta -->
+          <div class="system-info">
+            <!-- Header con logo y nombre del sistema -->
+            <div class="system-header">
+              <div class="system-logo">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="system-title">
+                <h1>EduPlatform Pro</h1>
+                <p>Sistema de Gestión Educativa</p>
+              </div>
+            </div>
+
+            <!-- Título principal -->
+            <div class="main-title">
+              <h2>Gestiona tu institución educativa de manera inteligente</h2>
+            </div>
+
+            <!-- Descripción -->
+            <div class="system-description">
+              <p>
+                Plataforma integral para administrar estudiantes, profesores,
+                calificaciones, asistencia y mucho más en un solo lugar.
+              </p>
+            </div>
+
+            <!-- Características principales -->
+            <div class="features-list">
+              <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <span>Gestión completa de estudiantes y profesores</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-certificate"></i>
+                <span>Sistema de calificaciones y boletas</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-clock"></i>
+                <span>Control de asistencia en tiempo real</span>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-comments"></i>
+                <span>Comunicación integrada y foros</span>
+              </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="stats-section">
+              <div class="stat-item">
+                <div class="stat-number">1,234+</div>
+                <div class="stat-label">Estudiantes</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">45+</div>
+                <div class="stat-label">Cursos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfacción</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección derecha - 50% para el formulario -->
+      <div class="right-section">
+        <div class="form-container">
+          <div class="form-header">
+            <div class="logo-minimal">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h2>Bienvenido</h2>
+            <p>Ingresa tus credenciales para continuar</p>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <!-- Campo de usuario -->
+            <div class="form-group">
+              <label for="username">Usuario</label>
+              <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Ingresa tu usuario"
+                  required
+                />
+              </div>
+              <span class="error-message" id="usernameError"></span>
+            </div>
+
+            <!-- Campo de contraseña -->
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Ingresa tu contraseña"
+                  required
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  id="togglePassword"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <span class="error-message" id="passwordError"></span>
+            </div>
+
+            <!-- Opciones adicionales -->
+            <div class="form-options">
+              <label class="checkbox-container">
+                <input type="checkbox" id="rememberMe" />
+                <span class="checkmark"></span>
+                Recordarme
+              </label>
+              <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <!-- Botón de envío -->
+            <button type="submit" class="login-button" id="loginButton">
+              <span class="button-text">Iniciar Sesión</span>
+              <div class="loading-spinner" id="loadingSpinner">
+                <i class="fas fa-spinner fa-spin"></i>
+              </div>
+            </button>
+
+            <!-- Mensaje de estado -->
+            <div class="status-message" id="statusMessage"></div>
+          </form>
+
+          <!-- Enlaces adicionales -->
+          <div class="form-footer">
+            <p>
+              ¿No tienes cuenta?
+              <a href="#" class="register-link">Regístrate aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

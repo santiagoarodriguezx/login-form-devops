@@ -1,0 +1,1752 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* Eliminar scroll */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #f8fafc;
+  position: relative;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  height: 100vh; /* Altura completa de la ventana */
+  width: 100vw; /* Ancho completo de la ventana */
+  background: #ffffff;
+  border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Sección izquierda - Con imagen de fondo y partículas */
+.left-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Sombra de separación hacia la derecha */
+  box-shadow: inset -20px 0 40px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de partículas */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* Overlay morado sobre la imagen */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.4) 0%,
+    rgba(118, 75, 162, 0.5) 50%,
+    rgba(159, 90, 253, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Contenido sobre la imagen */
+.content-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Permitir scroll si es necesario */
+}
+
+.system-info {
+  max-width: 500px;
+  width: 100%;
+  /* Centrar verticalmente el contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header del sistema */
+.system-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.system-logo {
+  width: 50px;
+  height: 50px;
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+}
+
+.system-logo i {
+  font-size: 1.5rem;
+  color: #c084fc;
+}
+
+.system-title h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #c084fc;
+}
+
+.system-title p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+  text-align: left;
+  font-weight: 300;
+}
+
+/* Título principal */
+.main-title {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-title h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
+/* Descripción */
+.system-description {
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.system-description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* Lista de características */
+.features-list {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.feature-item i {
+  font-size: 1.1rem;
+  color: #c084fc;
+  min-width: 20px;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Sección de estadísticas */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c084fc;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+/* Elementos geométricos flotantes */
+.floating-element {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.element-1 {
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 20%;
+  animation-delay: 0s;
+  transform: rotate(45deg);
+}
+
+.element-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 25%;
+  animation-delay: 2s;
+  border-radius: 50%;
+}
+
+.element-3 {
+  width: 60px;
+  height: 200px;
+  top: 25%;
+  right: 15%;
+  animation-delay: 4s;
+  border-radius: 30px;
+}
+
+.element-4 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 1s;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 0;
+}
+
+.element-5 {
+  width: 140px;
+  height: 40px;
+  top: 45%;
+  left: 30%;
+  animation-delay: 3s;
+  border-radius: 20px;
+}
+
+/* Círculos de gradiente */
+.gradient-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 70%
+  );
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 70%
+  );
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 2s;
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.4) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+/* Líneas decorativas */
+.decorative-line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  height: 1px;
+  animation: slide 8s linear infinite;
+}
+
+.line-1 {
+  width: 300px;
+  top: 30%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.line-2 {
+  width: 200px;
+  top: 70%;
+  right: -50px;
+  animation-delay: 3s;
+  transform: rotate(45deg);
+}
+
+.line-3 {
+  width: 250px;
+  top: 50%;
+  left: -75px;
+  animation-delay: 6s;
+  transform: rotate(-30deg);
+}
+
+/* Efecto de cristal central */
+.glass-effect {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: rotate 20s linear infinite;
+}
+
+/* Sección derecha */
+.right-section {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  overflow-y: auto; /* Solo scroll vertical si es necesario */
+  height: 100vh;
+  /* Sombra sutil de separación desde la izquierda */
+  box-shadow: inset 10px 0 20px -10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04),
+    0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Logo minimalista */
+.logo-minimal {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.logo-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del formulario */
+.form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.025em;
+}
+
+.form-header p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+/* Grupos de formulario */
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container i {
+  position: absolute;
+  left: 1.25rem;
+  color: #9ca3af;
+  z-index: 1;
+  font-size: 0.875rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 1.25rem 1.25rem 1.25rem 3.25rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  color: #1f2937;
+  font-weight: 400;
+}
+
+.input-container input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: #ffffff;
+}
+
+.input-container input:valid:not(:placeholder-shown) {
+  border-color: #10b981;
+}
+
+.input-container input:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+}
+
+/* Botón para mostrar/ocultar contraseña */
+.toggle-password {
+  position: absolute;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  min-width: 44px; /* Área táctil mínima */
+  min-height: 44px; /* Área táctil mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-password:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+}
+
+/* Mejorar área táctil en dispositivos móviles */
+@media (hover: none) and (pointer: coarse) {
+  .toggle-password {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0.75rem;
+  }
+
+  .checkbox-container {
+    padding: 0.5rem 0;
+    min-height: 48px;
+    align-items: center;
+  }
+
+  .forgot-password {
+    padding: 0.5rem 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .register-link {
+    padding: 0.25rem 0;
+  }
+}
+
+/* Mensajes de error */
+.error-message {
+  display: block;
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  min-height: 1rem;
+  font-weight: 500;
+}
+
+/* Opciones del formulario */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+}
+
+/* Checkbox personalizado */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.checkbox-container input {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  position: relative;
+  transition: all 0.2s ease;
+  background: #ffffff;
+}
+
+.checkbox-container input:checked + .checkmark {
+  background: #667eea;
+  border-color: #667eea;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  content: "✓";
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.forgot-password {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.forgot-password:hover {
+  color: #5a67d8;
+}
+
+/* Botón de login */
+.login-button {
+  width: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.025em;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.3);
+}
+
+.login-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.login-button.loading {
+  pointer-events: none;
+}
+
+.loading-spinner {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-button.loading .button-text {
+  opacity: 0;
+}
+
+.login-button.loading .loading-spinner {
+  display: block;
+}
+
+/* Mensaje de estado */
+.status-message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-align: center;
+  display: none;
+  font-weight: 500;
+}
+
+.status-message.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.status-message.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Pie del formulario */
+.form-footer {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.form-footer p {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.register-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.register-link:hover {
+  color: #5a67d8;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-container {
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive Design */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .container {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .left-section {
+    box-shadow: inset -15px 0 30px -8px rgba(0, 0, 0, 0.25);
+  }
+
+  .right-section {
+    padding: 1.5rem;
+  }
+
+  .form-container {
+    padding: 2rem;
+    max-width: 380px;
+  }
+}
+
+/* Tablets pequeñas y móviles horizontales */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .left-section {
+    min-height: 35vh;
+    max-height: 35vh;
+    padding: 1rem;
+    box-shadow: none;
+    /* Sombra hacia abajo en lugar de lateral */
+    box-shadow: inset 0 -15px 30px -8px rgba(0, 0, 0, 0.2);
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    height: 65vh;
+    overflow-y: auto;
+    box-shadow: none;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+    border-radius: 20px;
+    max-width: 100%;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .input-container input {
+    padding: 1rem 1rem 1rem 2.75rem;
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .input-container i {
+    left: 1rem;
+  }
+
+  .toggle-password {
+    right: 1rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .login-button {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Ajustar elementos flotantes para tablet */
+  .floating-element {
+    opacity: 0.6;
+  }
+
+  .element-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 15%;
+  }
+
+  .element-2 {
+    width: 60px;
+    height: 60px;
+    top: 65%;
+    right: 20%;
+  }
+
+  .element-3 {
+    width: 40px;
+    height: 100px;
+    top: 35%;
+    right: 10%;
+  }
+
+  .element-4 {
+    width: 70px;
+    height: 70px;
+    bottom: 15%;
+    left: 10%;
+  }
+
+  .element-5 {
+    width: 100px;
+    height: 30px;
+    top: 50%;
+    left: 25%;
+  }
+
+  .glass-effect {
+    width: 200px;
+    height: 200px;
+  }
+
+  .gradient-circle {
+    opacity: 0.4;
+  }
+
+  .circle-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .circle-2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-3 {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 480px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .left-section {
+    min-height: 30vh;
+    max-height: 30vh;
+    padding: 0.5rem;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 1rem 0.75rem;
+    height: 70vh;
+    overflow-y: auto;
+  }
+
+  .form-container {
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-minimal {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-minimal i {
+    font-size: 1.5rem;
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-container input {
+    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+    font-size: 16px; /* Importante para iOS */
+    border-radius: 10px;
+  }
+
+  .input-container i {
+    left: 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .toggle-password {
+    right: 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .checkmark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .login-button {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .status-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .form-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .form-footer p {
+    font-size: 0.8rem;
+  }
+
+  /* Elementos flotantes más pequeños para móvil */
+  .floating-element {
+    opacity: 0.4;
+  }
+
+  .element-1 {
+    width: 60px;
+    height: 60px;
+    top: 25%;
+    left: 10%;
+  }
+
+  .element-2 {
+    width: 45px;
+    height: 45px;
+    top: 70%;
+    right: 15%;
+  }
+
+  .element-3 {
+    width: 30px;
+    height: 80px;
+    top: 40%;
+    right: 8%;
+  }
+
+  .element-4 {
+    width: 50px;
+    height: 50px;
+    bottom: 20%;
+    left: 8%;
+  }
+
+  .element-5 {
+    width: 80px;
+    height: 25px;
+    top: 55%;
+    left: 20%;
+  }
+
+  .glass-effect {
+    width: 150px;
+    height: 150px;
+  }
+
+  .gradient-circle {
+    opacity: 0.3;
+  }
+
+  .circle-1 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Optimizaciones para partículas en móvil */
+  .particles-container {
+    opacity: 0.7;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  .left-section {
+    min-height: 25vh;
+    max-height: 25vh;
+  }
+
+  .right-section {
+    height: 75vh;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .form-container {
+    padding: 1rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.8rem;
+  }
+
+  .input-container input {
+    padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+    font-size: 15px;
+  }
+
+  .login-button {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  /* Ocultar algunos elementos decorativos en pantallas muy pequeñas */
+  .element-3,
+  .element-5 {
+    display: none;
+  }
+
+  .circle-1,
+  .circle-3 {
+    display: none;
+  }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+  }
+
+  .left-section {
+    min-height: 100vh;
+    max-height: 100vh;
+    flex: 0.4;
+  }
+
+  .right-section {
+    flex: 0.6;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+}
+
+/* Efectos adicionales para pantallas grandes */
+@media (min-width: 1200px) {
+  .container {
+    max-width: none;
+    margin: 0;
+  }
+
+  .form-container {
+    max-width: 450px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .input-container input {
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    font-size: 1rem;
+  }
+
+  .input-container i {
+    left: 1.5rem;
+  }
+
+  .toggle-password {
+    right: 1.5rem;
+  }
+
+  .login-button {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Ultra wide screens */
+@media (min-width: 1600px) {
+  .left-section {
+    box-shadow: inset -25px 0 50px -12px rgba(0, 0, 0, 0.35);
+  }
+
+  .form-container {
+    max-width: 500px;
+    padding: 3.5rem;
+  }
+
+  .floating-element {
+    opacity: 0.9;
+  }
+
+  .glass-effect {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: none;
+    margin: 0;
+  }
+
+  .form-container {
+    max-width: 450px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .input-container input {
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    font-size: 1rem;
+  }
+
+  .input-container i {
+    left: 1.5rem;
+  }
+
+  .toggle-password {
+    right: 1.5rem;
+  }
+
+  .login-button {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Estilos específicos para el overlay en pantallas grandes */
+  .system-info {
+    max-width: 550px;
+  }
+
+  .main-title h2 {
+    font-size: 2.5rem;
+  }
+
+  .stats-section {
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop - comportamiento normal */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .left-section {
+    flex: 0.4;
+  }
+
+  .right-section {
+    flex: 0.6;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  /* Overlay ajustado para desktop mediano */
+  .content-overlay {
+    padding: 1.5rem;
+  }
+
+  .system-info {
+    max-width: 400px;
+  }
+
+  .main-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 991px) {
+  .content-overlay {
+    padding: 1.5rem;
+  }
+
+  .system-info {
+    max-width: 450px;
+  }
+
+  .system-header {
+    margin-bottom: 1.25rem;
+    padding: 0.875rem;
+  }
+
+  .main-title {
+    margin-bottom: 1.25rem;
+    padding: 1.125rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.7rem;
+  }
+
+  .system-description {
+    margin-bottom: 1.5rem;
+    padding: 1.125rem;
+  }
+
+  .stats-section {
+    gap: 0.75rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .feature-item {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .feature-item span {
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Landscape y Tablets Pequeños */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .left-section {
+    min-height: 60vh; /* Un poco más de altura para mejor visualización */
+  }
+
+  .right-section {
+    min-height: 50vh;
+    padding: 0; /* Eliminar padding de la sección */
+    overflow-y: auto; /* Permitir scroll en toda la sección */
+  }
+
+  .form-container {
+    height: 100%;
+    min-height: 50vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinear desde arriba */
+    overflow-y: auto; /* Scroll interno si es necesario */
+  }
+
+  .login-form {
+    padding: 0; /* Remover padding extra */
+    flex: 1; /* Tomar todo el espacio disponible */
+  }
+
+  .form-group input {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .login-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Overlay responsive para móviles */
+  .content-overlay {
+    padding: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .system-info {
+    max-width: 100%;
+    padding-top: 1rem;
+  }
+
+  .system-header {
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+  }
+
+  .system-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .system-logo i {
+    font-size: 1.2rem;
+  }
+
+  .system-title {
+    text-align: left;
+  }
+
+  .system-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .system-title p {
+    font-size: 0.8rem;
+  }
+
+  .main-title {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .system-description {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .system-description p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .features-list {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .feature-item i {
+    font-size: 1rem;
+  }
+
+  .feature-item span {
+    font-size: 0.8rem;
+  }
+
+  .stats-section {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .stat-item {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .right-section {
+    padding: 0; /* Sin padding en la sección */
+    overflow-y: auto;
+  }
+
+  .form-container {
+    padding: 1rem;
+    height: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .login-form {
+    padding: 0; /* Sin padding extra */
+    flex: 1;
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem; /* Más espacio para mejor visualización */
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem; /* Más espacio entre campos */
+  }
+
+  .form-footer {
+    margin-top: 1.5rem; /* Más espacio en el footer */
+    padding-top: 1rem;
+  }
+
+  /* Overlay para móviles pequeños */
+  .content-overlay {
+    padding: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .system-info {
+    padding-top: 0.5rem;
+  }
+
+  .system-header {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .system-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .system-logo i {
+    font-size: 1rem;
+  }
+
+  .system-title h1 {
+    font-size: 1.1rem;
+  }
+
+  .system-title p {
+    font-size: 0.75rem;
+  }
+
+  .main-title {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .system-description {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .system-description p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .features-list {
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-item {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .feature-item i {
+    font-size: 0.9rem;
+  }
+
+  .feature-item span {
+    font-size: 0.75rem;
+  }
+
+  .stats-section {
+    gap: 0.4rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem 0.3rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+}
+
+/* Altura mínima para evitar contenido comprimido */
+@media (min-height: 800px) {
+  .form-container {
+    padding: 3rem 2.5rem;
+  }
+
+  .form-header {
+    margin-bottom: 3rem;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-footer {
+    margin-top: 3rem;
+  }
+}
