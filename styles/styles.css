@@ -81,6 +81,178 @@ body {
   z-index: 3;
   text-align: center;
   color: white;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Permitir scroll si es necesario */
+}
+
+.system-info {
+  max-width: 500px;
+  width: 100%;
+  /* Centrar verticalmente el contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Header del sistema */
+.system-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.system-logo {
+  width: 50px;
+  height: 50px;
+  background: rgba(147, 51, 234, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+}
+
+.system-logo i {
+  font-size: 1.5rem;
+  color: #c084fc;
+}
+
+.system-title h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #c084fc;
+}
+
+.system-title p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.9;
+  text-align: left;
+  font-weight: 300;
+}
+
+/* Título principal */
+.main-title {
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-title h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
+/* Descripción */
+.system-description {
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.system-description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* Lista de características */
+.features-list {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.feature-item i {
+  font-size: 1.1rem;
+  color: #c084fc;
+  min-width: 20px;
+}
+
+.feature-item span {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Sección de estadísticas */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c084fc;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  font-weight: 500;
 }
 
 /* Elementos geométricos flotantes */
@@ -1117,6 +1289,8 @@ body {
   }
 }
 
+/* === RESPONSIVE BREAKPOINTS === */
+
 /* Ultra wide screens */
 @media (min-width: 1600px) {
   .left-section {
@@ -1135,6 +1309,426 @@ body {
   .glass-effect {
     width: 400px;
     height: 400px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .container {
+    max-width: none;
+    margin: 0;
+  }
+
+  .form-container {
+    max-width: 450px;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .input-container input {
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    font-size: 1rem;
+  }
+
+  .input-container i {
+    left: 1.5rem;
+  }
+
+  .toggle-password {
+    right: 1.5rem;
+  }
+
+  .login-button {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Estilos específicos para el overlay en pantallas grandes */
+  .system-info {
+    max-width: 550px;
+  }
+
+  .main-title h2 {
+    font-size: 2.5rem;
+  }
+
+  .stats-section {
+    gap: 1.5rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop - comportamiento normal */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .left-section {
+    flex: 0.4;
+  }
+
+  .right-section {
+    flex: 0.6;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  /* Overlay ajustado para desktop mediano */
+  .content-overlay {
+    padding: 1.5rem;
+  }
+
+  .system-info {
+    max-width: 400px;
+  }
+
+  .main-title h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 991px) {
+  .content-overlay {
+    padding: 1.5rem;
+  }
+
+  .system-info {
+    max-width: 450px;
+  }
+
+  .system-header {
+    margin-bottom: 1.25rem;
+    padding: 0.875rem;
+  }
+
+  .main-title {
+    margin-bottom: 1.25rem;
+    padding: 1.125rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.7rem;
+  }
+
+  .system-description {
+    margin-bottom: 1.5rem;
+    padding: 1.125rem;
+  }
+
+  .stats-section {
+    gap: 0.75rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .feature-item {
+    padding: 0.625rem 0.875rem;
+  }
+
+  .feature-item span {
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile Landscape y Tablets Pequeños */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  .left-section {
+    min-height: 60vh; /* Un poco más de altura para mejor visualización */
+  }
+
+  .right-section {
+    min-height: 50vh;
+    padding: 0; /* Eliminar padding de la sección */
+    overflow-y: auto; /* Permitir scroll en toda la sección */
+  }
+
+  .form-container {
+    height: 100%;
+    min-height: 50vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinear desde arriba */
+    overflow-y: auto; /* Scroll interno si es necesario */
+  }
+
+  .login-form {
+    padding: 0; /* Remover padding extra */
+    flex: 1; /* Tomar todo el espacio disponible */
+  }
+
+  .form-group input {
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .login-btn {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Overlay responsive para móviles */
+  .content-overlay {
+    padding: 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .system-info {
+    max-width: 100%;
+    padding-top: 1rem;
+  }
+
+  .system-header {
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+  }
+
+  .system-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .system-logo i {
+    font-size: 1.2rem;
+  }
+
+  .system-title {
+    text-align: left;
+  }
+
+  .system-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .system-title p {
+    font-size: 0.8rem;
+  }
+
+  .main-title {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.4rem;
+    line-height: 1.3;
+  }
+
+  .system-description {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .system-description p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .features-list {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .feature-item i {
+    font-size: 1rem;
+  }
+
+  .feature-item span {
+    font-size: 0.8rem;
+  }
+
+  .stats-section {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .stat-item {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .right-section {
+    padding: 0; /* Sin padding en la sección */
+    overflow-y: auto;
+  }
+
+  .form-container {
+    padding: 1rem;
+    height: 100%;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .login-form {
+    padding: 0; /* Sin padding extra */
+    flex: 1;
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem; /* Más espacio para mejor visualización */
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem; /* Más espacio entre campos */
+  }
+
+  .form-footer {
+    margin-top: 1.5rem; /* Más espacio en el footer */
+    padding-top: 1rem;
+  }
+
+  /* Overlay para móviles pequeños */
+  .content-overlay {
+    padding: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .system-info {
+    padding-top: 0.5rem;
+  }
+
+  .system-header {
+    margin-bottom: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .system-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .system-logo i {
+    font-size: 1rem;
+  }
+
+  .system-title h1 {
+    font-size: 1.1rem;
+  }
+
+  .system-title p {
+    font-size: 0.75rem;
+  }
+
+  .main-title {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .main-title h2 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .system-description {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .system-description p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .features-list {
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-item {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .feature-item i {
+    font-size: 0.9rem;
+  }
+
+  .feature-item span {
+    font-size: 0.75rem;
+  }
+
+  .stats-section {
+    gap: 0.4rem;
+  }
+
+  .stat-item {
+    padding: 0.5rem 0.3rem;
+  }
+
+  .stat-number {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
   }
 }
 
