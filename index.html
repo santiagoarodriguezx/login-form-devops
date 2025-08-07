@@ -3,37 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HU0002 - Formulario de Login</title>
+    <title>Plataforma Educativa - Iniciar Sesión</title>
     <link rel="stylesheet" href="./styles/styles.css" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <!-- Particles.js CDN para efectos de partículas -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   </head>
   <body>
     <div class="container">
-      <!-- Sección izquierda - 50% moderna y minimalista -->
-      <div class="left-section">
-        <div class="geometric-background">
-          <!-- Elementos geométricos flotantes -->
-          <div class="floating-element element-1"></div>
-          <div class="floating-element element-2"></div>
-          <div class="floating-element element-3"></div>
-          <div class="floating-element element-4"></div>
-          <div class="floating-element element-5"></div>
+      <!-- Sección izquierda - 50% con imagen de fondo y partículas -->
+      <div
+        class="left-section"
+        style="background-image: url('./img/guarderia_01.webp')"
+      >
+        <!-- Contenedor para particles.js -->
+        <div id="particles-js" class="particles-container"></div>
 
-          <!-- Círculos de gradiente -->
-          <div class="gradient-circle circle-1"></div>
-          <div class="gradient-circle circle-2"></div>
-          <div class="gradient-circle circle-3"></div>
+        <!-- Overlay morado sobre la imagen de fondo -->
+        <div class="image-overlay"></div>
 
-          <!-- Líneas decorativas -->
-          <div class="decorative-line line-1"></div>
-          <div class="decorative-line line-2"></div>
-          <div class="decorative-line line-3"></div>
-
-          <!-- Efecto de cristal -->
-          <div class="glass-effect"></div>
+        <!-- Contenido opcional sobre la imagen -->
+        <div class="content-overlay">
+          <!-- Espacio para logo o texto -->
         </div>
       </div>
 
@@ -42,7 +36,7 @@
         <div class="form-container">
           <div class="form-header">
             <div class="logo-minimal">
-              <div class="logo-icon"></div>
+              <i class="fas fa-graduation-cap"></i>
             </div>
             <h2>Bienvenido</h2>
             <p>Ingresa tus credenciales para continuar</p>

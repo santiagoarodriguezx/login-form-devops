@@ -5,45 +5,82 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* Eliminar scroll */
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
   line-height: 1.6;
   color: #1a1a1a;
   background: #f8fafc;
-  min-height: 100vh;
-  overflow-x: hidden;
+  position: relative;
 }
 
 /* Contenedor principal */
 .container {
   display: flex;
-  min-height: 100vh;
-  max-width: 1400px;
-  margin: 0 auto;
+  height: 100vh; /* Altura completa de la ventana */
+  width: 100vw; /* Ancho completo de la ventana */
   background: #ffffff;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
   border-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-/* Sección izquierda - Moderna y minimalista */
+/* Sección izquierda - Con imagen de fondo y partículas */
 .left-section {
   flex: 1;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   position: relative;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Sombra de separación hacia la derecha */
+  box-shadow: inset -20px 0 40px -10px rgba(0, 0, 0, 0.3);
 }
 
-.geometric-background {
-  position: relative;
+/* Contenedor de partículas */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 2;
+}
+
+/* Overlay morado sobre la imagen */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.4) 0%,
+    rgba(118, 75, 162, 0.5) 50%,
+    rgba(159, 90, 253, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+/* Contenido sobre la imagen */
+.content-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: white;
 }
 
 /* Elementos geométricos flotantes */
@@ -206,18 +243,22 @@ body {
 /* Sección derecha */
 .right-section {
   flex: 1;
-  padding: 3rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #ffffff;
+  overflow-y: auto; /* Solo scroll vertical si es necesario */
+  height: 100vh;
+  /* Sombra sutil de separación desde la izquierda */
+  box-shadow: inset 10px 0 20px -10px rgba(0, 0, 0, 0.1);
 }
 
 .form-container {
   width: 100%;
   max-width: 420px;
   background: #ffffff;
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 24px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.04),
     0 10px 10px -5px rgba(0, 0, 0, 0.02);
@@ -345,11 +386,42 @@ body {
   border-radius: 6px;
   transition: all 0.2s ease;
   font-size: 0.875rem;
+  min-width: 44px; /* Área táctil mínima */
+  min-height: 44px; /* Área táctil mínima */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .toggle-password:hover {
   color: #667eea;
   background: rgba(102, 126, 234, 0.05);
+}
+
+/* Mejorar área táctil en dispositivos móviles */
+@media (hover: none) and (pointer: coarse) {
+  .toggle-password {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0.75rem;
+  }
+
+  .checkbox-container {
+    padding: 0.5rem 0;
+    min-height: 48px;
+    align-items: center;
+  }
+
+  .forgot-password {
+    padding: 0.5rem 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .register-link {
+    padding: 0.25rem 0;
+  }
 }
 
 /* Mensajes de error */
@@ -578,86 +650,509 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
   .container {
-    flex-direction: column;
-    min-height: auto;
+    height: 100vh;
+    width: 100vw;
   }
 
   .left-section {
-    min-height: 40vh;
-    padding: 1rem;
+    box-shadow: inset -15px 0 30px -8px rgba(0, 0, 0, 0.25);
   }
 
   .right-section {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
   }
 
   .form-container {
-    padding: 2rem 1.5rem;
+    padding: 2rem;
+    max-width: 380px;
+  }
+}
+
+/* Tablets pequeñas y móviles horizontales */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .left-section {
+    min-height: 35vh;
+    max-height: 35vh;
+    padding: 1rem;
+    box-shadow: none;
+    /* Sombra hacia abajo en lugar de lateral */
+    box-shadow: inset 0 -15px 30px -8px rgba(0, 0, 0, 0.2);
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 1.5rem 1rem;
+    height: 65vh;
+    overflow-y: auto;
+    box-shadow: none;
+  }
+
+  .form-container {
+    padding: 1.5rem;
     border-radius: 20px;
+    max-width: 100%;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.9rem;
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .input-container input {
+    padding: 1rem 1rem 1rem 2.75rem;
+    font-size: 16px; /* Previene zoom en iOS */
+  }
+
+  .input-container i {
+    left: 1rem;
+  }
+
+  .toggle-password {
+    right: 1rem;
   }
 
   .form-options {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
+    margin-bottom: 1.5rem;
   }
 
-  /* Ajustar elementos flotantes para móvil */
+  .login-button {
+    padding: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Ajustar elementos flotantes para tablet */
   .floating-element {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   .element-1 {
     width: 80px;
     height: 80px;
+    top: 20%;
+    left: 15%;
   }
 
   .element-2 {
     width: 60px;
     height: 60px;
+    top: 65%;
+    right: 20%;
   }
 
   .element-3 {
     width: 40px;
-    height: 120px;
+    height: 100px;
+    top: 35%;
+    right: 10%;
+  }
+
+  .element-4 {
+    width: 70px;
+    height: 70px;
+    bottom: 15%;
+    left: 10%;
+  }
+
+  .element-5 {
+    width: 100px;
+    height: 30px;
+    top: 50%;
+    left: 25%;
   }
 
   .glass-effect {
     width: 200px;
     height: 200px;
   }
+
+  .gradient-circle {
+    opacity: 0.4;
+  }
+
+  .circle-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .circle-2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-3 {
+    width: 80px;
+    height: 80px;
+  }
 }
 
+/* Móviles grandes */
 @media (max-width: 480px) {
-  .right-section {
-    padding: 1.5rem 1rem;
-  }
-
-  .form-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .form-header h2 {
-    font-size: 1.75rem;
+  .container {
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
   }
 
   .left-section {
     min-height: 30vh;
+    max-height: 30vh;
+    padding: 0.5rem;
+  }
+
+  .right-section {
+    flex: 1;
+    padding: 1rem 0.75rem;
+    height: 70vh;
+    overflow-y: auto;
+  }
+
+  .form-container {
+    padding: 1.25rem 1rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo-minimal {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-minimal i {
+    font-size: 1.5rem;
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.85rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-container input {
+    padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+    font-size: 16px; /* Importante para iOS */
+    border-radius: 10px;
+  }
+
+  .input-container i {
+    left: 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .toggle-password {
+    right: 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .checkmark {
+    width: 16px;
+    height: 16px;
+  }
+
+  .login-button {
+    padding: 0.875rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .status-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .form-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .form-footer p {
+    font-size: 0.8rem;
+  }
+
+  /* Elementos flotantes más pequeños para móvil */
+  .floating-element {
+    opacity: 0.4;
+  }
+
+  .element-1 {
+    width: 60px;
+    height: 60px;
+    top: 25%;
+    left: 10%;
+  }
+
+  .element-2 {
+    width: 45px;
+    height: 45px;
+    top: 70%;
+    right: 15%;
+  }
+
+  .element-3 {
+    width: 30px;
+    height: 80px;
+    top: 40%;
+    right: 8%;
+  }
+
+  .element-4 {
+    width: 50px;
+    height: 50px;
+    bottom: 20%;
+    left: 8%;
+  }
+
+  .element-5 {
+    width: 80px;
+    height: 25px;
+    top: 55%;
+    left: 20%;
+  }
+
+  .glass-effect {
+    width: 150px;
+    height: 150px;
+  }
+
+  .gradient-circle {
+    opacity: 0.3;
+  }
+
+  .circle-1 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .circle-2 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle-3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Optimizaciones para partículas en móvil */
+  .particles-container {
+    opacity: 0.7;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 320px) {
+  .left-section {
+    min-height: 25vh;
+    max-height: 25vh;
+  }
+
+  .right-section {
+    height: 75vh;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .form-container {
+    padding: 1rem 0.75rem;
+    border-radius: 12px;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-header p {
+    font-size: 0.8rem;
+  }
+
+  .input-container input {
+    padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+    font-size: 15px;
+  }
+
+  .login-button {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  /* Ocultar algunos elementos decorativos en pantallas muy pequeñas */
+  .element-3,
+  .element-5 {
+    display: none;
+  }
+
+  .circle-1,
+  .circle-3 {
+    display: none;
+  }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+  }
+
+  .left-section {
+    min-height: 100vh;
+    max-height: 100vh;
+    flex: 0.4;
+  }
+
+  .right-section {
+    flex: 0.6;
+    height: 100vh;
+    padding: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .form-header {
+    margin-bottom: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
   }
 }
 
 /* Efectos adicionales para pantallas grandes */
 @media (min-width: 1200px) {
   .container {
-    border-radius: 24px;
-    margin: 2rem auto;
-    max-height: calc(100vh - 4rem);
+    max-width: none;
+    margin: 0;
   }
 
   .form-container {
+    max-width: 450px;
+    padding: 3rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
       0 0 0 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .form-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .input-container input {
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    font-size: 1rem;
+  }
+
+  .input-container i {
+    left: 1.5rem;
+  }
+
+  .toggle-password {
+    right: 1.5rem;
+  }
+
+  .login-button {
+    padding: 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Ultra wide screens */
+@media (min-width: 1600px) {
+  .left-section {
+    box-shadow: inset -25px 0 50px -12px rgba(0, 0, 0, 0.35);
+  }
+
+  .form-container {
+    max-width: 500px;
+    padding: 3.5rem;
+  }
+
+  .floating-element {
+    opacity: 0.9;
+  }
+
+  .glass-effect {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Altura mínima para evitar contenido comprimido */
+@media (min-height: 800px) {
+  .form-container {
+    padding: 3rem 2.5rem;
+  }
+
+  .form-header {
+    margin-bottom: 3rem;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-footer {
+    margin-top: 3rem;
   }
 }
