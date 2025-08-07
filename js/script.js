@@ -3,6 +3,9 @@
 
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
+  // Inicializar partículas en la sección izquierda
+  initializeParticles();
+
   // Obtener referencias a los elementos del formulario
   const loginForm = document.getElementById("loginForm");
   const usernameInput = document.getElementById("username");
@@ -316,6 +319,103 @@ function clearSessionData() {
   localStorage.removeItem("rememberedUser");
   localStorage.removeItem("loginTime");
   console.log("Datos de sesión limpiados");
+}
+
+// Función para inicializar partículas
+function initializeParticles() {
+  // Verificar si particles.js está disponible
+  if (typeof particlesJS !== "undefined") {
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800,
+          },
+        },
+        color: {
+          value: ["#ffffff", "#f0f0f0", "#e0e0e0"],
+        },
+        shape: {
+          type: "circle",
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.3,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 1,
+            sync: false,
+          },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#ffffff",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "grab",
+          },
+          onclick: {
+            enable: true,
+            mode: "push",
+          },
+          resize: true,
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 0.8,
+            },
+          },
+          push: {
+            particles_nb: 4,
+          },
+        },
+      },
+      retina_detect: true,
+    });
+  } else {
+    console.warn("Particles.js no está disponible");
+  }
 }
 
 // Hacer la función disponible globalmente para debugging
