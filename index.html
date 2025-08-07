@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HU0002 - Formulario de Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sección izquierda - 50% moderna y minimalista -->
+      <div class="left-section">
+        <div class="geometric-background">
+          <!-- Elementos geométricos flotantes -->
+          <div class="floating-element element-1"></div>
+          <div class="floating-element element-2"></div>
+          <div class="floating-element element-3"></div>
+          <div class="floating-element element-4"></div>
+          <div class="floating-element element-5"></div>
+
+          <!-- Círculos de gradiente -->
+          <div class="gradient-circle circle-1"></div>
+          <div class="gradient-circle circle-2"></div>
+          <div class="gradient-circle circle-3"></div>
+
+          <!-- Líneas decorativas -->
+          <div class="decorative-line line-1"></div>
+          <div class="decorative-line line-2"></div>
+          <div class="decorative-line line-3"></div>
+
+          <!-- Efecto de cristal -->
+          <div class="glass-effect"></div>
+        </div>
+      </div>
+
+      <!-- Sección derecha - 50% para el formulario -->
+      <div class="right-section">
+        <div class="form-container">
+          <div class="form-header">
+            <div class="logo-minimal">
+              <div class="logo-icon"></div>
+            </div>
+            <h2>Bienvenido</h2>
+            <p>Ingresa tus credenciales para continuar</p>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <!-- Campo de usuario -->
+            <div class="form-group">
+              <label for="username">Usuario</label>
+              <div class="input-container">
+                <i class="fas fa-user"></i>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Ingresa tu usuario"
+                  required
+                />
+              </div>
+              <span class="error-message" id="usernameError"></span>
+            </div>
+
+            <!-- Campo de contraseña -->
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-container">
+                <i class="fas fa-lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Ingresa tu contraseña"
+                  required
+                />
+                <button
+                  type="button"
+                  class="toggle-password"
+                  id="togglePassword"
+                >
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <span class="error-message" id="passwordError"></span>
+            </div>
+
+            <!-- Opciones adicionales -->
+            <div class="form-options">
+              <label class="checkbox-container">
+                <input type="checkbox" id="rememberMe" />
+                <span class="checkmark"></span>
+                Recordarme
+              </label>
+              <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <!-- Botón de envío -->
+            <button type="submit" class="login-button" id="loginButton">
+              <span class="button-text">Iniciar Sesión</span>
+              <div class="loading-spinner" id="loadingSpinner">
+                <i class="fas fa-spinner fa-spin"></i>
+              </div>
+            </button>
+
+            <!-- Mensaje de estado -->
+            <div class="status-message" id="statusMessage"></div>
+          </form>
+
+          <!-- Enlaces adicionales -->
+          <div class="form-footer">
+            <p>
+              ¿No tienes cuenta?
+              <a href="#" class="register-link">Regístrate aquí</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
